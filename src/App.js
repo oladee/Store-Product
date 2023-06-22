@@ -26,11 +26,14 @@ const App = () => {
       try {
         const response = await fetch(baseApiurl + "products")
         const data = await response.json();
-        setProducts(data)
+        console.log(data)
+        if(data.id !== null){
+          setProducts(data)
         setLoading(false)
+        }
       } catch (error) {
         console.log(error)
-        setLoading(false)
+        // setLoading(false)
       }
     }
     console.log(products)
